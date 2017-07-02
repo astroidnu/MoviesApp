@@ -2,6 +2,8 @@ package com.scoproject.moviesapp.di.component
 
 import android.app.Application
 import com.scoproject.moviesapp.di.module.AppModule
+import com.scoproject.moviesapp.ui.HomeComponent
+import com.scoproject.moviesapp.ui.HomeModule
 import dagger.Component
 import javax.inject.Singleton
 
@@ -22,4 +24,6 @@ interface AppComponent{
             return appComponent
         }
     }
+
+    fun plus(homeModule: HomeModule): HomeComponent
 }

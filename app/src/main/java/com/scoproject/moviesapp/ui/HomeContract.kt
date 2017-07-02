@@ -6,11 +6,11 @@ package com.scoproject.moviesapp.ui
 
 class HomeContract {
 
-    internal interface View{
+    interface View{
         fun showSnackBar(msg: String, view :android.view.View)
     }
 
-    internal interface ActionListener{
+    internal interface UserActionListener{
 
     }
 }

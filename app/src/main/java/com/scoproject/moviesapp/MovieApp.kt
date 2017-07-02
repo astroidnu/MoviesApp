@@ -13,8 +13,10 @@ class MovieApp : Application() {
         @JvmStatic lateinit var appComponent: AppComponent
     }
 
+
     override fun onCreate() {
         super.onCreate()
         appComponent = AppComponent.create(this);
     }
+
 }
