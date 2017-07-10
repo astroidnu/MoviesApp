@@ -1,4 +1,4 @@
-package com.scoproject.moviesapp.ui
+package com.scoproject.moviesapp.ui.home
 
 import com.scoproject.moviesapp.di.scope.ActivityScope
 

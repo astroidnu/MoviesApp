@@ -1,9 +1,8 @@
-package com.scoproject.moviesapp.ui
+package com.scoproject.moviesapp.ui.home
 
 import com.scoproject.moviesapp.di.scope.ActivityScope
 import dagger.Module
 import dagger.Provides
-import javax.inject.Inject
 
 /**
  * Created by ibnumuzzakkir on 7/2/17.

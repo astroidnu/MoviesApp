@@ -1,11 +1,11 @@
-package com.scoproject.moviesapp.ui
+package com.scoproject.moviesapp.ui.home
 
 import android.util.Log
 
 /**
  * Created by ibnumuzzakkir on 7/2/17.
  */
-class HomePresenter : HomeContract.UserActionListener{
+class HomePresenter : HomeContract.UserActionListener {
     var mView: HomeContract.View? = null
 
     init {

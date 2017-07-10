@@ -1,11 +1,9 @@
-package com.scoproject.moviesapp.ui
+package com.scoproject.moviesapp.ui.home
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
 import android.view.View
-import android.widget.TextView
 import com.scoproject.moviesapp.MovieApp
 import com.scoproject.moviesapp.R
 import kotlinx.android.synthetic.main.activity_main.*
@@ -13,7 +11,7 @@ import kotlinx.android.synthetic.main.toolbar.*
 import javax.inject.Inject
 
 class HomeActivity : AppCompatActivity(), HomeContract.View {
-    @Inject lateinit var homePresenter:HomePresenter
+    @Inject lateinit var homePresenter: HomePresenter
     private var mActionListener: HomeContract.UserActionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

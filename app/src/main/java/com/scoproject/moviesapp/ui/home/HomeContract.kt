@@ -1,4 +1,4 @@
-package com.scoproject.moviesapp.ui
+package com.scoproject.moviesapp.ui.home
 
 /**
  * Created by ibnumuzzakkir on 7/2/17.
