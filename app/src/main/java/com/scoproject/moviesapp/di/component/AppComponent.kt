@@ -2,6 +2,7 @@ package com.scoproject.moviesapp.di.component
 
 import android.app.Application
 import com.scoproject.moviesapp.di.module.AppModule
+import com.scoproject.moviesapp.di.module.NetworkModule
 import com.scoproject.moviesapp.ui.home.HomeComponent
 import com.scoproject.moviesapp.ui.home.HomeModule
 import dagger.Component
@@ -13,17 +14,9 @@ import javax.inject.Singleton
  */
 @Singleton
 @Component(
-    modules = arrayOf(AppModule::class)
+    modules = arrayOf(
+            AppModule::class, NetworkModule::class)
 )
 interface AppComponent{
-    companion object Factory {
-        fun create(app: Application): AppComponent {
-            val appComponent = DaggerAppComponent.builder().
-                    appModule(AppModule(app)).
-                    build()
-            return appComponent
-        }
-    }
-
     fun plus(homeModule: HomeModule): HomeComponent
 }

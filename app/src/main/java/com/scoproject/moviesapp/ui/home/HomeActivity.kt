@@ -21,6 +21,7 @@ class HomeActivity : AppCompatActivity(), HomeContract.View {
         setupLayout()
         mActionListener = homePresenter
         homePresenter.setView(this)
+        homePresenter.getMovieData()
     }
 
     private fun setupLayout(){

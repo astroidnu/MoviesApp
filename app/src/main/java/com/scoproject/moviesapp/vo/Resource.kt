@@ -11,6 +11,17 @@ class Resource<T>(@param:NonNull
                   val data: T?, @param:Nullable
                   val message: String?) {
 
+    companion object {
+
+        fun <T> success(@Nullable data: T): Resource<T> {
+            return Resource(Status.SUCCESS, data, null)
+        }
+
+        fun <T> error(msg: String, @Nullable data: T): Resource<T> {
+            return Resource(Status.ERROR, data, msg)
+        }
+    }
+
     override fun equals(o: Any?): Boolean {
         if (this === o) {
             return true
@@ -44,16 +55,4 @@ class Resource<T>(@param:NonNull
                 ", data=" + data +
                 '}'
     }
-
-    companion object {
-
-        fun <T> success(@Nullable data: T): Resource<T> {
-            return Resource(Status.SUCCESS, data, null)
-        }
-
-        fun <T> error(msg: String, @Nullable data: T): Resource<T> {
-            return Resource(Status.ERROR, data, msg)
-        }
-    }
-
 }

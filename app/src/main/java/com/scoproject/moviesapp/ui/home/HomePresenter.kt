@@ -1,11 +1,14 @@
 package com.scoproject.moviesapp.ui.home
 
 import android.util.Log
+import com.scoproject.moviesapp.repository.MovieRepository
 
 /**
  * Created by ibnumuzzakkir on 7/2/17.
  */
-class HomePresenter : HomeContract.UserActionListener {
+class HomePresenter(movieRepository: MovieRepository) : HomeContract.UserActionListener {
+    val mMovieRepository = movieRepository
+
     var mView: HomeContract.View? = null
 
     init {
@@ -14,6 +17,13 @@ class HomePresenter : HomeContract.UserActionListener {
 
     fun setView(view: HomeContract.View) {
         mView = view
+    }
+
+    override fun getMovieData(){
+        mMovieRepository.getMovies("popular")?.subscribe(
+                { result -> Log.d(javaClass.name,result.data.toString()) },
+                { error ->  Log.e(javaClass.name,error.message) }
+            )
     }
 
 }

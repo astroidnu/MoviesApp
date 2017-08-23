@@ -11,6 +11,6 @@ class HomeContract {
     }
 
     internal interface UserActionListener{
-
+        fun getMovieData()
     }
 }
