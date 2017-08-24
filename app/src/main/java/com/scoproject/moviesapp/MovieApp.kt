@@ -7,6 +7,7 @@ import com.scoproject.moviesapp.di.module.AppModule
 import com.scoproject.moviesapp.di.module.NetworkModule
 
 
+@Suppress("DEPRECATION")
 /**
  * Created by ibnumuzzakkir on 7/2/17.
  */

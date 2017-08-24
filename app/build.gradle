@@ -7,8 +7,9 @@ def AndroidLibVersion = '25.4.0'
 def dagger_version = "2.11"
 def RetrofitVersion = "2.3.0"
 def OkhttpVersion = "3.7.0"
-def ButterknifeVersion = "8.6.0"
 def anko_version = '0.10.1'
+def MockitoVersion = "2.8.9"
+def MockwebserverVersion = "3.6.0"
 
 
 def keystorePropertiesFile = rootProject.file("keystore.properties")
@@ -79,6 +80,14 @@ dependencies {
     implementation "org.jetbrains.anko:anko-sdk25:$anko_version"
     implementation "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
 
+    androidTestCompile "org.mockito:mockito-core:${MockitoVersion}"
+    androidTestCompile("com.squareup.okhttp3:mockwebserver:${MockwebserverVersion}") {
+        exclude module: 'okio'
+        exclude module: 'okhttp'
+    }
+
+    testCompile "org.mockito:mockito-core:${MockitoVersion}"
+
     //Dagger
     implementation "com.google.dagger:dagger:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
@@ -86,9 +95,7 @@ dependencies {
     provided 'org.glassfish:javax.annotation:10.0-b28'
     provided 'javax.annotation:jsr250-api:1.0'
     implementation 'javax.inject:javax.inject:1'
-//    compile "com.google.dagger:dagger:$DaggerVersion"
-//    annotationProcessor "com.google.dagger:dagger-compiler:$DaggerVersion"
-//    androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$DaggerVersion"
+    androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
 
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:$RetrofitVersion"

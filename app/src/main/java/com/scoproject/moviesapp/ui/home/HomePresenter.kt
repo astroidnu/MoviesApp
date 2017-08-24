@@ -11,10 +11,6 @@ class HomePresenter(movieRepository: MovieRepository) : HomeContract.UserActionL
 
     var mView: HomeContract.View? = null
 
-    init {
-       Log.d("HomePresenter", "hello")
-    }
-
     fun setView(view: HomeContract.View) {
         mView = view
     }
