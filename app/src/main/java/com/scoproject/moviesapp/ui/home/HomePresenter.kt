@@ -21,7 +21,7 @@ class HomePresenter(movieRepository: MovieRepository) : HomeContract.UserActionL
 
     override fun getMovieData(){
         mMovieRepository.getMovies("popular")?.subscribe(
-                { result -> Log.d(javaClass.name,result.data.toString()) },
+                { result -> mView?.setAdapter(result.data!!) },
                 { error ->  Log.e(javaClass.name,error.message) }
             )
     }
