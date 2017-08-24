@@ -20,6 +20,12 @@
         android:layout_margin="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <ProgressBar
+        android:id="@+id/movie_progressbar"
+        app:layout_anchor="@id/movie_recycleview"
+        app:layout_anchorGravity="center"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/movie_recycleview"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"

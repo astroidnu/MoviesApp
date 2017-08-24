@@ -10,6 +10,8 @@ import com.scoproject.moviesapp.data.Movie
 class HomeContract {
 
     interface View{
+        fun setupLayout()
+        fun showLoadingbar()
         fun showSnackBar(msg: String, view :android.view.View)
         fun setAdapter(movie:List<Movie>)
     }

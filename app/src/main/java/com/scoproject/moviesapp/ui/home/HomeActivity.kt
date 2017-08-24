@@ -28,7 +28,7 @@ class HomeActivity : AppCompatActivity(), HomeContract.View {
         homePresenter.getMovieData()
     }
 
-    private fun setupLayout(){
+    override fun setupLayout(){
         toolbar_title.setText("Home")
         main_fab.setOnClickListener { view-> showSnackBar("Hello from Anko", view) }
     }
@@ -50,5 +50,9 @@ class HomeActivity : AppCompatActivity(), HomeContract.View {
         movie_recycleview.layoutManager = LinearLayoutManager(this)
         movie_recycleview.hasFixedSize()
         movie_recycleview.adapter = MovieAdapter(movie)
+    }
+
+    override fun showLoadingbar() {
+        movie_progressbar.visibility = View.VISIBLE
     }
 }

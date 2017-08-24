@@ -4,13 +4,13 @@ import com.scoproject.moviesapp.repository.MovieRepository
 import com.scoproject.moviesapp.ui.home.HomeContract
 import org.junit.runner.RunWith
 import org.mockito.Mock
-import com.scoproject.moviesapp.ui.home.HomeContract.UserActionListener
 import com.scoproject.moviesapp.ui.home.HomePresenter
+import kotlinx.android.synthetic.main.toolbar.*
 import org.junit.Before
 import org.junit.Test
 import org.junit.runners.JUnit4
-import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
+import org.mockito.Mockito.verify
 
 
 /**
@@ -37,8 +37,9 @@ class MoviePresenterTest{
     }
 
     @Test
-    fun checkingUI(){
-        assert(true).equals(R.id.main_fab)
+    fun checkingProgressBar(){
+        mActionListener.getMovieData()
+        verify(mHomeView).showLoadingbar()
     }
     
 }

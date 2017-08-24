@@ -16,6 +16,7 @@ class HomePresenter(movieRepository: MovieRepository) : HomeContract.UserActionL
     }
 
     override fun getMovieData(){
+        mView?.showLoadingbar()
         mMovieRepository.getMovies("popular")?.subscribe(
                 { result -> mView?.setAdapter(result.data!!) },
                 { error ->  Log.e(javaClass.name,error.message) }
