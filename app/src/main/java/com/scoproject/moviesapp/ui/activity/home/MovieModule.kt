@@ -1,4 +1,4 @@
-package com.scoproject.moviesapp.ui.home
+package com.scoproject.moviesapp.ui.activity.home
 
 import com.scoproject.moviesapp.di.scope.ActivityScope
 import dagger.Module
@@ -13,12 +13,12 @@ import com.scoproject.moviesapp.api.NetworkService
  * Created by ibnumuzzakkir on 7/2/17.
  */
 @Module
-class HomeModule(val homeActivity: HomeActivity){
+class MovieModule(val movieActivity: MovieActivity){
 
     @Provides
     @ActivityScope
-    internal fun provideHomeActivity(): HomeActivity {
-        return homeActivity
+    internal fun provideHomeActivity(): MovieActivity {
+        return movieActivity
     }
 
     @Provides
@@ -28,7 +28,7 @@ class HomeModule(val homeActivity: HomeActivity){
     }
     @Provides
     @ActivityScope
-    fun provideMainPresenter(movieRepository: MovieRepository): HomePresenter {
-        return HomePresenter(movieRepository)
+    fun provideMainPresenter(movieRepository: MovieRepository): MoviePresenter {
+        return MoviePresenter(movieRepository)
     }
 }

@@ -1,4 +1,4 @@
-package com.scoproject.moviesapp.ui.home
+package com.scoproject.moviesapp.ui.activity.home
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -9,23 +9,23 @@ import com.scoproject.moviesapp.MovieApp
 import com.scoproject.moviesapp.R
 import com.scoproject.moviesapp.adapter.MovieAdapter
 import com.scoproject.moviesapp.data.Movie
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_movie.*
 import kotlinx.android.synthetic.main.toolbar.*
 import javax.inject.Inject
 
-class HomeActivity : AppCompatActivity(), HomeContract.View {
+class MovieActivity : AppCompatActivity(), MovieContract.View {
 
-    @Inject lateinit var homePresenter: HomePresenter
-    private var mActionListener: HomeContract.UserActionListener? = null
+    @Inject lateinit var moviePresenter: MoviePresenter
+    private var mActionListener: MovieContract.UserActionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_movie)
         setupActivityComponent()
         setupLayout()
-        mActionListener = homePresenter
-        homePresenter.setView(this)
-        homePresenter.getMovieData()
+        mActionListener = moviePresenter
+        moviePresenter.setView(this)
+        moviePresenter.getMovieData()
     }
 
     override fun setupLayout(){
@@ -42,17 +42,24 @@ class HomeActivity : AppCompatActivity(), HomeContract.View {
 
     private fun setupActivityComponent() {
         MovieApp.appComponent
-                .plus(HomeModule(this))
+                .plus(MovieModule(this))
                 .inject(this)
     }
 
     override fun setAdapter(movie: List<Movie>) {
+        setLoadingBar(false)
         movie_recycleview.layoutManager = LinearLayoutManager(this)
         movie_recycleview.hasFixedSize()
         movie_recycleview.adapter = MovieAdapter(movie)
     }
 
-    override fun showLoadingbar() {
-        movie_progressbar.visibility = View.VISIBLE
+    override fun setLoadingBar(status: Boolean) {
+        var visibilty : Int
+        if(status){
+            visibilty = View.VISIBLE
+        }else{
+            visibilty = View.GONE
+        }
+        movie_progressbar.visibility = visibilty
     }
 }

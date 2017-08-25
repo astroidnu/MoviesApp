@@ -1,4 +1,4 @@
-package com.scoproject.moviesapp.ui.home
+package com.scoproject.moviesapp.ui.activity.home
 
 import com.scoproject.moviesapp.data.Movie
 
@@ -7,11 +7,11 @@ import com.scoproject.moviesapp.data.Movie
  * Created by ibnumuzzakkir on 7/2/17.
  */
 
-class HomeContract {
+class MovieContract {
 
     interface View{
         fun setupLayout()
-        fun showLoadingbar()
+        fun setLoadingBar(status : Boolean)
         fun showSnackBar(msg: String, view :android.view.View)
         fun setAdapter(movie:List<Movie>)
     }

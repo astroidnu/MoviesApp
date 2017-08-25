@@ -1,10 +1,9 @@
 package com.scoproject.moviesapp.di.component
 
-import android.app.Application
 import com.scoproject.moviesapp.di.module.AppModule
 import com.scoproject.moviesapp.di.module.NetworkModule
-import com.scoproject.moviesapp.ui.home.HomeComponent
-import com.scoproject.moviesapp.ui.home.HomeModule
+import com.scoproject.moviesapp.ui.activity.home.MovieComponent
+import com.scoproject.moviesapp.ui.activity.home.MovieModule
 import dagger.Component
 import javax.inject.Singleton
 
@@ -18,5 +17,5 @@ import javax.inject.Singleton
             AppModule::class, NetworkModule::class)
 )
 interface AppComponent{
-    fun plus(homeModule: HomeModule): HomeComponent
+    fun plus(movieModule: MovieModule): MovieComponent
 }
