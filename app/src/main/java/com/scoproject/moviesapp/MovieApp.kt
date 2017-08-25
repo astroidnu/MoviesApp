@@ -5,6 +5,7 @@ import com.scoproject.moviesapp.di.component.AppComponent
 import com.scoproject.moviesapp.di.component.DaggerAppComponent
 import com.scoproject.moviesapp.di.module.AppModule
 import com.scoproject.moviesapp.di.module.NetworkModule
+import io.realm.Realm
 
 
 @Suppress("DEPRECATION")
@@ -24,6 +25,7 @@ class MovieApp : Application() {
         super.onCreate()
         appComponent = createComponent()
         instance = this
+        Realm.init(this)
     }
 
     fun createComponent(): AppComponent {
