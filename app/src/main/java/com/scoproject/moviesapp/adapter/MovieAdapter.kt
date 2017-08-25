@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.scoproject.moviesapp.R
-import com.scoproject.moviesapp.data.Movie
+import com.scoproject.moviesapp.model.Movie
 import kotlinx.android.synthetic.main.item_movie.view.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
 

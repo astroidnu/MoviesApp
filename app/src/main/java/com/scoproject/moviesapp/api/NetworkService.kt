@@ -1,8 +1,7 @@
 package com.scoproject.moviesapp.api
 
-import com.scoproject.moviesapp.data.Movie
+import com.scoproject.moviesapp.model.Movie
 import io.reactivex.Flowable
-import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

@@ -1,4 +1,4 @@
-package com.scoproject.moviesapp.data
+package com.scoproject.moviesapp.model
 
 import android.os.Parcel
 import com.google.gson.annotations.SerializedName

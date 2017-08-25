@@ -2,12 +2,11 @@ package com.scoproject.moviesapp.repository
 
 import com.scoproject.moviesapp.api.ApiWrapper
 import com.scoproject.moviesapp.api.NetworkService
-import com.scoproject.moviesapp.data.Movie
+import com.scoproject.moviesapp.model.Movie
 import com.scoproject.moviesapp.vo.Resource
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.Flowable
-import io.reactivex.Observable
 
 
 /**

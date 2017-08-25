@@ -1,6 +1,6 @@
 package com.scoproject.moviesapp.ui.activity.home
 
-import com.scoproject.moviesapp.data.Movie
+import com.scoproject.moviesapp.model.Movie
 
 
 /**

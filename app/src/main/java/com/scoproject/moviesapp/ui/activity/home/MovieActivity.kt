@@ -8,7 +8,7 @@ import android.view.View
 import com.scoproject.moviesapp.MovieApp
 import com.scoproject.moviesapp.R
 import com.scoproject.moviesapp.adapter.MovieAdapter
-import com.scoproject.moviesapp.data.Movie
+import com.scoproject.moviesapp.model.Movie
 import kotlinx.android.synthetic.main.activity_movie.*
 import kotlinx.android.synthetic.main.toolbar.*
 import javax.inject.Inject
