@@ -7,7 +7,7 @@ class Constants{
     companion object {
         val BASE_URL = "https://api.themoviedb.org/3/"
         //    var TOKEN = BuildConfig.THE_MOVIE_DB_API_KEY
-        var BASE_URL_IMAGE = "http://image.tmdb.org/t/p/w185/"
+        var BASE_URL_IMAGE = "http://image.tmdb.org/t/p/w780/"
         var BASE_URL_IMAGE_BACKDROP = "http://image.tmdb.org/t/p"
     }
 
