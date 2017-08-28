@@ -2,6 +2,7 @@ package com.scoproject.moviesapp.vo
 
 import android.support.annotation.NonNull
 import android.support.annotation.Nullable
+import java.lang.reflect.Type
 
 /**
  * Created by ibnumuzzakkir on 8/8/17.
@@ -9,7 +10,7 @@ import android.support.annotation.Nullable
 class Resource<T>(@param:NonNull
                   val status: Status, @param:Nullable
                   val data: T?, @param:Nullable
-                  val message: String?) {
+                  val message: String?) : Type {
 
     companion object {
 

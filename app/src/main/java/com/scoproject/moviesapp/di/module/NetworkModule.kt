@@ -3,7 +3,6 @@ package com.scoproject.moviesapp.di.module
 import com.scoproject.moviesapp.MovieApp
 import com.scoproject.moviesapp.api.NetworkService
 import com.scoproject.moviesapp.utils.Constants
-import com.scoproject.moviesapp.utils.CustomCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache
@@ -14,11 +13,7 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.Retrofit
-
-
-
-
-
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 
 
 /**
@@ -61,7 +56,7 @@ class NetworkModule(val movieApp: MovieApp){
         val builder = Retrofit.Builder()
         builder.client(okHttpClient)
                 .baseUrl(Constants.BASE_URL)
-                .addCallAdapterFactory(CustomCallAdapterFactory())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
         return builder.build()
     }

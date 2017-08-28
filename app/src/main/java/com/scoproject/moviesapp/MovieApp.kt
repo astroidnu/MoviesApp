@@ -1,6 +1,7 @@
 package com.scoproject.moviesapp
 
 import android.app.Application
+import android.support.multidex.MultiDex
 import com.scoproject.moviesapp.di.component.AppComponent
 import com.scoproject.moviesapp.di.component.DaggerAppComponent
 import com.scoproject.moviesapp.di.module.AppModule
@@ -26,6 +27,7 @@ class MovieApp : Application() {
         appComponent = createComponent()
         instance = this
         Realm.init(this)
+        MultiDex.install(this)
     }
 
     fun createComponent(): AppComponent {

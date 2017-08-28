@@ -1,7 +1,9 @@
 package com.scoproject.moviesapp.ui.activity.home
 
-import android.util.Log
+
+import com.scoproject.moviesapp.api.NetworkError
 import com.scoproject.moviesapp.repository.MovieRepository
+
 
 /**
  * Created by ibnumuzzakkir on 7/2/17.
@@ -17,10 +19,25 @@ class MoviePresenter(movieRepository: MovieRepository) : MovieContract.UserActio
 
     override fun getMovieData(){
         mView?.setLoadingBar(true)
-        mMovieRepository.getMovies("popular")?.subscribe(
-                { result -> mView?.setAdapter(result.data!!) },
-                { error ->  Log.e(javaClass.name,error.message) }
-            )
+        mMovieRepository.getMovies("popular")
+                ?.subscribe({
+                    data->
+                    mView?.setLoadingBar(false)
+                    mView?.setAdapter(data.results!!)
+                },{
+                    error->
+                    mView?.setLoadingBar(false)
+                    val errMsg = NetworkError(error).getErrorMessage()
+                    mView?.showToast(errMsg)
+                })
     }
+
+//    fun handlingError(error:Throwable){
+//        mView?.setLoadingBar(false)
+//        if (error is retrofit2.HttpException) {
+//            val exception   = error
+//            mView?.showToast(exception.code().toString())
+//        }
+//    }
 
 }

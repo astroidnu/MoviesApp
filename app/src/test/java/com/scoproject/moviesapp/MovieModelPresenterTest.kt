@@ -16,7 +16,7 @@ import org.mockito.Mockito.verify
  * Created by ibnumuzzakkir on 8/24/17.
  */
 @RunWith(JUnit4::class)
-class MoviePresenterTest{
+class MovieModelPresenterTest {
 
     @Mock private lateinit var mMovieView: MovieContract.View
 
