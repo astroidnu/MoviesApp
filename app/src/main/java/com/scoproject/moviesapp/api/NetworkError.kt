@@ -5,7 +5,6 @@ import android.util.Log
 import retrofit2.HttpException
 import java.io.IOException
 import com.google.gson.Gson
-import retrofit2.Response
 
 
 /**
@@ -29,7 +28,7 @@ class NetworkError(val err:Throwable): Throwable() {
             if (!TextUtils.isEmpty(status)){
                 return status!!
             }
-            val headers = response!!.headers().toMultimap()
+            val headers = response.headers().toMultimap()
             if (headers.containsKey(ERROR_MESSAGE_HEADER)){
                 return headers.get(ERROR_MESSAGE_HEADER)?.get(0)!!
             }
@@ -41,25 +40,24 @@ class NetworkError(val err:Throwable): Throwable() {
         try {
             Log.d(javaClass.name, response.code().toString())
             val jsonString = response.errorBody()!!.string()
-            val errorResponse = Gson().fromJson(jsonString, BaseApiResponse::class.java!!)
+            val errorResponse = Gson().fromJson(jsonString, BaseApiResponse::class.java)
             return errorResponse.status_message
         } catch (e: Exception) {
             return null
         }
     }
 
-    override fun equals(o: Any?): Boolean {
-        if (this === o) return true
-        if (o == null || javaClass != o.javaClass) return false
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other == null || javaClass != other.javaClass) return false
 
-        val that = o as NetworkError?
+        val that = other as NetworkError?
 
-        return if (err != null) err.equals(that!!.err) else that!!.err == null
-
+        return err.equals(that!!.err)
     }
 
     override fun hashCode(): Int {
-        return if (err != null) err.hashCode() else 0
+        return err.hashCode()
     }
 
 }

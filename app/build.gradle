@@ -38,17 +38,27 @@ android {
     packagingOptions {
         exclude 'LICENSE.txt'
         exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/MANIFEST.MF'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
     }
 
     buildTypes {
+        debug{
+            minifyEnabled false
+            useProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
         release {
             minifyEnabled false
+            useProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
     lintOptions {
         abortOnError false
+        ignoreWarnings true
     }
 }
 
@@ -76,13 +86,18 @@ dependencies {
     implementation "com.android.support:support-v4:$android_lib_version"
     implementation "com.android.support:palette-v7:$android_lib_version"
 
+    //Constraint Layout
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
     //Multidex
     compile 'com.android.support:multidex:1.0.1'
 
     //Anko
-    compile "org.jetbrains.anko:anko-commons:$anko_version"
-    implementation "org.jetbrains.anko:anko:$anko_version"
+    compile ("org.jetbrains.anko:anko-commons:$anko_version"){
+        exclude group: 'com.google.android', module: 'android'
+    }
     implementation "org.jetbrains.anko:anko-sdk25:$anko_version"
+    implementation "org.jetbrains.anko:anko:$anko_version"
     implementation "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
 
     androidTestCompile "org.mockito:mockito-core:${mockito_version}"
